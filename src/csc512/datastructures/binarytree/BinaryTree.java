@@ -75,19 +75,19 @@ public class BinaryTree {
 
     }
 
-    public void printInorder() {
-        printInorder(rootNode);
+    public void printInOrder() {
+        printInOrder(rootNode);
     }
 
-    public void printInorder(Node node) {
+    public void printInOrder(Node node) {
         if (node != null) {
-            printInorder(node.leftNode);
+            printInOrder(node.leftNode);
             System.out.print(" " + node.data);
-            printInorder(node.rightNode);
+            printInOrder(node.rightNode);
         }
     }
 
-    public void printPreorder() {
+    public void printPreOrder() {
         printPreOrder(rootNode);
     }
 
@@ -99,14 +99,14 @@ public class BinaryTree {
         }
     }
 
-    public void printPostorder() {
-        printPostorder(rootNode);
+    public void printPostOrder() {
+        printPostOrder(rootNode);
     }
 
-    public void printPostorder(Node node) {
+    public void printPostOrder(Node node) {
         if (node != null) {
-            printPostorder(node.leftNode);
-            printPostorder(node.rightNode);
+            printPostOrder(node.leftNode);
+            printPostOrder(node.rightNode);
             System.out.print(" " + node.data);
         }
     }

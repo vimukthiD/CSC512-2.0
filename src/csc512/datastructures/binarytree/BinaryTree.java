@@ -39,7 +39,7 @@ public class BinaryTree {
                 currentNode = currentNode.rightNode;
             }
         }
-        if (parentNode != null){
+        if (parentNode != null) {
             setNewChildNode(parentNode, key < parentNode.data, new Node(key));
         } else {
             rootNode = new Node(key);
@@ -63,7 +63,8 @@ public class BinaryTree {
         if (currentNode == null) {
             return;
         } else if (currentNode.leftNode != null && currentNode.rightNode != null) {
-
+            Node successor = removeSuccessor(currentNode);
+            setNewChildNode(parentNode,isLeftChild,successor);
         } else if (currentNode.leftNode != null) {
             setNewChildNode(parentNode, isLeftChild, currentNode.leftNode);
         } else if (currentNode.rightNode != null) {
@@ -74,8 +75,19 @@ public class BinaryTree {
 
     }
 
+    private Node removeSuccessor(Node currentNode) {
+        Node successor = currentNode.rightNode;
+        Node parentNode = null;
+        while (successor.leftNode != null) {
+            parentNode = successor;
+            successor = successor.leftNode;
+        }
+        parentNode.leftNode = successor.rightNode;
+        return successor;
+    }
+
     private void setNewChildNode(Node parentNode, boolean isLeftChild, Node newChildNode) {
-        if (parentNode != null){
+        if (parentNode != null) {
             if (isLeftChild)
                 parentNode.leftNode = newChildNode;
             else

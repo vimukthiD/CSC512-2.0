@@ -64,7 +64,7 @@ public class BinaryTree {
             return;
         } else if (currentNode.leftNode != null && currentNode.rightNode != null) {
             Node successor = removeSuccessor(currentNode);
-            setNewChildNode(parentNode,isLeftChild,successor);
+            setNewChildNode(parentNode, isLeftChild, successor);
         } else if (currentNode.leftNode != null) {
             setNewChildNode(parentNode, isLeftChild, currentNode.leftNode);
         } else if (currentNode.rightNode != null) {
@@ -73,6 +73,42 @@ public class BinaryTree {
             setNewChildNode(parentNode, isLeftChild, null);
         }
 
+    }
+
+    public void printInorder() {
+        printInorder(rootNode);
+    }
+
+    public void printInorder(Node node) {
+        if (node != null) {
+            printInorder(node.leftNode);
+            System.out.print(" " + node.data);
+            printInorder(node.rightNode);
+        }
+    }
+
+    public void printPreorder() {
+        printPreOrder(rootNode);
+    }
+
+    public void printPreOrder(Node node) {
+        if (node != null) {
+            System.out.print(" " + node.data);
+            printPreOrder(node.leftNode);
+            printPreOrder(node.rightNode);
+        }
+    }
+
+    public void printPostorder() {
+        printPostorder(rootNode);
+    }
+
+    public void printPostorder(Node node) {
+        if (node != null) {
+            printPostorder(node.leftNode);
+            printPostorder(node.rightNode);
+            System.out.print(" " + node.data);
+        }
     }
 
     private Node removeSuccessor(Node currentNode) {

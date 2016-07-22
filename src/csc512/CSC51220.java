@@ -1,5 +1,6 @@
 package csc512;
 
+import csc512.datastructures.binarytree.BinaryTree;
 import csc512.datastructures.linkedlist.LinkedList;
 import csc512.datastructures.stack.Stack;
 
@@ -15,6 +16,7 @@ public class CSC51220 {
         checkLinkedList();
         checkStack();
         displayInBinary(8);
+        checkBinaryTree();
     }
 
     public static void checkLinkedList() {
@@ -125,6 +127,47 @@ public class CSC51220 {
             System.out.print(binaryValue.pop());
         }
         System.out.println("\n=============================================");
+    }
+
+    public static void checkBinaryTree() {
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.insert(4);
+        binaryTree.insert(2);
+        binaryTree.insert(3);
+        binaryTree.insert(1);
+        binaryTree.insert(6);
+        binaryTree.insert(5);
+        binaryTree.insert(8);
+        binaryTree.insert(7);
+        binaryTree.insert(9);
+
+        System.out.print("in order : ");
+        binaryTree.printInOrder();
+        System.out.print("\npre order : ");
+        binaryTree.printPreOrder();
+        System.out.print("\npost order : ");
+        binaryTree.printPostOrder();
+
+        binaryTree.mirror();
+        System.out.print("\nmirrored in order : ");
+        binaryTree.printInOrder();
+
+        binaryTree.mirror();
+        System.out.print("\nmirrored back in order : ");
+        binaryTree.printInOrder();
+
+        System.out.print("\ndelete 6 in order : ");
+        binaryTree.delete(6);
+        binaryTree.printInOrder();
+
+        System.out.print("\ndelete 5 in order : ");
+        binaryTree.delete(5);
+        binaryTree.printInOrder();
+
+        System.out.print("\ndelete 8 in order : ");
+        binaryTree.delete(8);
+        binaryTree.printInOrder();
+
     }
 
 }
